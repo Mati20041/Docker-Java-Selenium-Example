@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class Sleniumhi {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeDriver driver = new ChromeDriver(new ChromeOptions().addArguments("no-sandbox").setHeadless(true));
 
@@ -26,5 +26,11 @@ public class Sleniumhi {
 
         File screenshotAs = driver.getScreenshotAs(OutputType.FILE);
         Files.copy(screenshotAs.toPath(), Paths.get("screen.png"), StandardCopyOption.REPLACE_EXISTING);
+
+        System.out.println("I will now wait so you can copy screenshot.png without a problem ;)");
+        Object lock = new Object();
+        synchronized(lock) {
+            lock.wait();
+        }
     }
 }
