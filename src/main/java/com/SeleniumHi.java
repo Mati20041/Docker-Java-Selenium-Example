@@ -13,7 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-public class Sleniumhi {
+public class SeleniumHi {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeDriver driver = new ChromeDriver(new ChromeOptions().addArguments("no-sandbox").setHeadless(true));
